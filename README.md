@@ -8,7 +8,7 @@ rails g model Dojo name:string city:string state:string
 rails g model Ninja first_name:string last_name:string dojo:references
 rails db:migrate
 # 3. Usando la consola de Ruby
-Cree 3 dojos (ingrese algunos datos en blanco solo para asegurarse que le permite ingresar datos en blanco).
+# Cree 3 dojos (ingrese algunos datos en blanco solo para asegurarse que le permite ingresar datos en blanco).
 Dojo.create(name: "CodingDojo Silicon Valley", city: "Mountain View", state: "CA")
 Dojo.create(name: "CodingDojo Seattle", city: "Seattle", state: "WA")
 Dojo.create(name: "CodingDojo New York", city: "New York", state: "NY")
@@ -18,17 +18,17 @@ class Dojo < ApplicationRecord
 # 5. Asegúrate que el modelo ninja pertenece a dojo
 has_many :ninjas
 # 4.1 Para dojo, requerir nombre, ciudad, estado. También haga que el estados sea de 2 caracteres de longitud.
- validates :name, :city, :state, presence: true
-   validates :state, length: { is: 2 }
-        end
+    validates :name, :city, :state, presence: true
+    validates :state, length: { is: 2 }
+end
 
 # En ninja.rb
 class Ninja < ApplicationRecord
 # 5. Asegúrate que el modelo ninja pertenece a dojo
 belongs_to :dojo
 # 4.2 Para ninja, requerir nombre y apellido.
-  validates :first_name, :last_name, presence: true
-      end
+    validates :first_name, :last_name, presence: true
+end
 # 6. Usando la consola de Ruby
 # 6.1. Elimine los 3 dojos que creó (ej. Dojo.find(1).destroy, también consulte el método destroy_all).
 Dojo.destroy_all
