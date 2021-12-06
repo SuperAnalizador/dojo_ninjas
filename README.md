@@ -12,7 +12,8 @@ Cree 3 dojos (ingrese algunos datos en blanco solo para asegurarse que le permit
 Dojo.create(name: "CodingDojo Silicon Valley", city: "Mountain View", state: "CA")
 Dojo.create(name: "CodingDojo Seattle", city: "Seattle", state: "WA")
 Dojo.create(name: "CodingDojo New York", city: "New York", state: "NY")
-# 4. Cambia tu modelo para que haga las siguientes validaciones:En dojo.rb class Dojo < ApplicationRecord
+# 4. Cambia tu modelo para que haga las siguientes validaciones:
+# En dojo.rb class Dojo < ApplicationRecord
 # 5. Asegúrate que el modelo ninja pertenece a dojo
 has_many :ninjas
 # 4.1 Para dojo, requerir nombre, ciudad, estado. También haga que el estados sea de 2 caracteres de longitud.
@@ -74,7 +75,7 @@ Dojo.third.ninjas
 Ninja.where(dojo: Dojo.second).select(:id, :first_name).order(created_at: :desc)
 
 # 6.9. Elimine el segundo dojo. ¿Cómo podrías ajustar tu modelo para que automáticamente elimine todos los ninjas asociados con ese dojo?
-class Dojo < ActiveRecord::Base
+class Dojo < ApplicationRecord
   # agregado dependent: :destroy
   has_many :ninjas, dependent: :destroy
   validates :name, :city, :state, presence: true
