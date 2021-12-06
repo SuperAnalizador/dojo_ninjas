@@ -13,7 +13,8 @@ Dojo.create(name: "CodingDojo Silicon Valley", city: "Mountain View", state: "CA
 Dojo.create(name: "CodingDojo Seattle", city: "Seattle", state: "WA")
 Dojo.create(name: "CodingDojo New York", city: "New York", state: "NY")
 # 4. Cambia tu modelo para que haga las siguientes validaciones:
-# En dojo.rb class Dojo < ApplicationRecord
+# En dojo.rb 
+class Dojo < ApplicationRecord
 # 5. Asegúrate que el modelo ninja pertenece a dojo
 has_many :ninjas
 # 4.1 Para dojo, requerir nombre, ciudad, estado. También haga que el estados sea de 2 caracteres de longitud.
